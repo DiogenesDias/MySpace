@@ -1,0 +1,8 @@
+message.omdb.error.bad-request = Erro ao buscar informações via integração com a API da OMDb
+message.omdb.error.response.invalid-type = O IMDb Id solicitado não corresponde ao tipo: '%1$s'
+message.omdb.error.params-invalid = Parametros inválidos
+message.omdb.error.params-missing.imdbID = É preciso informar o IMDb Id para buscar informações via integração com a API da OMDb
+message.omdb.error.params-missing.season = É preciso informar a Temporada que deseja buscar os episódios da Série/Anime
+message.omdb.error.anime.not-found.by-ImdbID = Anime de IMDb Id: '%1$s' não encontrado
+message.omdb.error.serie.not-found.by-ImdbID = Serie de IMDb Id: '%1$s' não encontrada
+message.omdb.error.movie.not-found.by-ImdbID = Filme de IMDb Id: '%1$s' não encontrada

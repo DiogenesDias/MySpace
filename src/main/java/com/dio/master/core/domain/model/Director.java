@@ -1,0 +1,11 @@
+package com.dio.master.core.domain.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class Director {
+
+    private String Name;
+}

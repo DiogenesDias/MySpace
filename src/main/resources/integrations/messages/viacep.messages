@@ -1,0 +1,3 @@
+message.viacep.error.params = Parametros inválidos
+message.viacep.error.bad-request = Erro ao buscar informações via integração com a API do Viacep
+message.viacep.error.not-found = CEP não encontrado

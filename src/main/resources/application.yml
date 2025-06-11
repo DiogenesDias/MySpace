@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: MySpace
+  docker:
+    compose:
+      file: ./docker/compose.yml
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    root: error
+    com:
+      dio:
+        nodeValue: info
+        com.dio.master: off
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+
+springdoc:
+  api-docs:
+    path: /api-swagger
+  swagger-ui:
+    path: /documentation
+    filter: true
+    try-it-out-enabled: true
+
+datasources:
+  main:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/MySpace
+    username: root
+    password: root
+  tests:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/MySpaceTests
+    username: root
+    password: root

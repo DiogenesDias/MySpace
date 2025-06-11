@@ -1,0 +1,30 @@
+name: myspace
+
+volumes:
+  CoreVolume:
+    name: MySpace
+
+networks:
+  CoreNetwork:
+    name: MySpace
+
+services:
+  MySpace:
+    image: mysql:8.0
+    container_name: MySpace
+    restart: always
+    command: --init-file /CoreVolume/schema.sql
+
+    ports:
+      - '3306:3306'
+
+    environment:
+      MYSQL_DATABASE: MySpace
+      MYSQL_ROOT_PASSWORD: root
+
+    networks:
+      - CoreNetwork
+
+    volumes:
+      - CoreVolume:/var/lib/mysql
+      - ./schema.sql:/CoreVolume/schema.sql
