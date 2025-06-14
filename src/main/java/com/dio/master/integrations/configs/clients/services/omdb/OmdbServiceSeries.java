@@ -24,7 +24,8 @@ public class OmdbServiceSeries implements GatewayRetrieveSeries {
     public Serie doRequest(String imdbID) {
         OmdbParamsSerie params = new OmdbParamsSerie(imdbID);
         OmdbRequestSerie request = new OmdbRequestSerie();
-        OmdbResponseSerie response = request.execute(params);
+        OmdbResponseSerie response = request.requestObject(params);
+
         validators.forEach(validator -> validator.validate(response, imdbID));
 
         return seriesMapperIntegration.toDomain(response);

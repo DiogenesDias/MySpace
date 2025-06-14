@@ -24,7 +24,8 @@ public class OmdbServiceAnime implements GatewayRetrieveAnime {
     public Anime doRequest(String imdbID) {
         OmdbParamsAnime params = new OmdbParamsAnime(imdbID);
         OmdbRequestAnime request = new OmdbRequestAnime();
-        OmdbResponseAnime response = request.execute(params);
+        OmdbResponseAnime response = request.requestObject(params);
+
         validators.forEach(validator -> validator.validate(response, imdbID));
 
         return animeMapper.toDomain(response);

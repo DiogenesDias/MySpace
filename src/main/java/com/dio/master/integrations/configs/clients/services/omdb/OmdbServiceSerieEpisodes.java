@@ -24,7 +24,8 @@ public class OmdbServiceSerieEpisodes implements GatewayRetrieveSerieEpisodes {
     public List<Episode> doRequest(String imdbID, Integer season) {
         OmdbParamsEpisode params = new OmdbParamsEpisode(imdbID, season);
         OmdbRequestEpisode request = new OmdbRequestEpisode();
-        OmdbResponseSeason response = request.execute(params);
+        OmdbResponseSeason response = request.requestObject(params);
+
         validators.forEach(validator -> validator.validate(response, imdbID));
 
         return episodeMapper.toDomainList(response.Episodes(), season, imdbID);

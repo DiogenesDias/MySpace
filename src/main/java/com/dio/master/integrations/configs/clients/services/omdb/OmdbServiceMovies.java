@@ -24,7 +24,8 @@ public class OmdbServiceMovies implements GatewayRetrieveMovies {
     public Movie doRequest(String imdbID) {
         OmdbParamsMovie params = new OmdbParamsMovie(imdbID);
         OmdbRequestMovie request = new OmdbRequestMovie();
-        OmdbResponseMovie response = request.execute(params);
+        OmdbResponseMovie response = request.requestObject(params);
+
         validators.forEach(validator -> validator.validate(response, imdbID));
 
         return movieMapper.toDomain(response);
